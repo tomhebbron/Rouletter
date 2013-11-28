@@ -1,0 +1,84 @@
+
+void rouletter_init(const int *data, const int len, double *bounds);
+int rouletter_spin(const double *bounds, const int len, const double luck);
+int rouletter_spin_bisect(const double *bounds, const int len, const double luck);
+
+
+
+// rouletter_init sets up the array of bounds given data. You pass in a array of ints, a pointer to an array of doubles to use as the bounds.
+void rouletter_init(const int *data, const int len, double *bounds)
+{
+	double sum = 0.0, bound = 0.0;
+	//sum data
+	for(int i=0; i<len; ++i)
+	{
+		sum += data[i];
+	} 
+
+	//set boundaries
+	for(int i=0; i<len; ++i)
+	{
+		bound += (data[i] / sum);
+		bounds[i] = bound;
+	} 
+}
+
+
+// rouletter_spin spins the wheel and returns the index of the lucky slot. bounds is as calculated by rouletter_init, len is length of array, luck is [0->1] random number.
+int rouletter_spin(const double *bounds, const int len, const double luck)
+{
+	for (int i=0; i<len; ++i) if (bounds[i] > luck) return i;
+	return len;		
+}
+
+
+// rouletter_spin_bisect is a variant that bisects the bounds array for higher performance when testing where luck lands.
+int rouletter_spin_bisect(const double *bounds, const int len, const double luck)
+{
+	int lo = 0, mid = 0, hi = len;
+    while (lo < hi)
+    {
+        mid = (lo+hi)/2; // floor division (remainder is discarded)
+        if (bounds[mid] < luck) lo = mid+1;
+        else hi = mid;
+    }
+    return lo;
+}
+
+
+
+
+// A Rouletter class keeps the bounds as a private property (so avoids moving the array to and from python)
+class clsRouletter
+{
+	private:
+		double *bounds;
+		int len;
+
+	public:
+
+		clsRouletter(const int *data, const int len)
+		{
+			this->bounds = new double[len];
+			this->len = len;
+			rouletter_init(data,len,this->bounds);
+		}
+		
+		~clsRouletter() {}
+	
+		inline int spin(const double luck)
+		{
+			return rouletter_spin(this->bounds,this->len,luck);
+	  	}
+
+		inline int spin_bisect(const double luck)
+		{
+			return rouletter_spin_bisect(this->bounds,this->len,luck);
+	  	}
+
+};
+
+
+
+
+
