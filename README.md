@@ -34,6 +34,6 @@ Compiling
 To build the code from source, ensure you have Cython and suitable compilers installed and call the setup.py script. For my local windows environment, I use:
 
 ```bash
-  python setup.py build_ext --inplace --compiler=mingw32
+  python setup.py build_ext --inplace
 ```
 

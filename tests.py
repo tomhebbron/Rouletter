@@ -42,6 +42,7 @@ def repeats_test(rsType, num_wheels=1, num_spins_per_wheel=1):
     print corr
     return corr
 
+
 class RouletteSelectorTests(unittest.TestCase):
 
     def testCorrelation(self):
@@ -57,7 +58,8 @@ class RouletteSelectorTests(unittest.TestCase):
 def main():
     global CURRENT_TEST_CLASS
     for CURRENT_TEST_CLASS in [Rouletter.Rouletter, pyRouletter.RouletteSelector, pyRouletter.RouletteSelector2]:
-        unittest.main()
+        print CURRENT_TEST_CLASS
+        unittest.main(exit=False)
     
 if __name__ == '__main__':
     #import cProfile

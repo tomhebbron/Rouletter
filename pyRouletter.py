@@ -60,5 +60,5 @@ class RouletteSelector2:
 
     def spin(self, luck):
         '''luck is a float between 0.0 and 1.0'''
-        return  bisect.bisect_left(self.bounds, self.bounds[-1] * luck)
+        return bisect.bisect_left(self.bounds, self.bounds[-1] * luck)
 

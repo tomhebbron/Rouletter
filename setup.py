@@ -2,7 +2,6 @@ from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Build import cythonize
 
-import numpy
 
 # extensions = [
 # 	Extension("Rouletter", ["Rouletter.pyx"], 
@@ -34,7 +33,7 @@ setup(
 										language="c++",
 										extra_compile_args=['-O3'],
 										)]),
-	include_dirs= [numpy.get_include()]
+	include_dirs= []
 )
 
 #http://stackoverflow.com/questions/2379898/make-distutils-look-for-numpy-header-files-in-the-correct-place
