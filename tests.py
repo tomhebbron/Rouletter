@@ -5,8 +5,8 @@ import random
 import scipy
 import numpy
 
+import purePythonRouletter
 import Rouletter
-import cyRouletter
 
 def profile_this(fn):
     ''' Decorator function for profiler - use @profile_this before definition. '''
@@ -47,7 +47,7 @@ class RouletteSelectorTests(unittest.TestCase):
     def testCorrelation(self):
         '''  Test that hits on the wheel correlate to the sizes '''
         global CURRENT_TEST_CLASS
-        corr = repeats_test(CURRENT_TEST_CLASS,10,1000)
+        corr = repeats_test(CURRENT_TEST_CLASS,100,1000)
         self.failUnless(corr > 0.80 )
 
 
@@ -56,7 +56,7 @@ class RouletteSelectorTests(unittest.TestCase):
 
 def main():
     global CURRENT_TEST_CLASS
-    for CURRENT_TEST_CLASS in [cyRouletter.RouletteSelector, Rouletter.RouletteSelector, Rouletter.RouletteSelector2]:
+    for CURRENT_TEST_CLASS in [Rouletter.RouletteSelector, purePythonRouletter.RouletteSelector, purePythonRouletter.RouletteSelector2]:
         print CURRENT_TEST_CLASS
         unittest.main(exit=False)
     

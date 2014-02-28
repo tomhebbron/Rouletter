@@ -19,7 +19,7 @@ slot widths, then call `spin` with a random number between 0.0 and 1.0.
 ```python
   import random, Rouletter
   widths = [1,2,1,1]
-  rw = Rouletter.Rouletter(widths)
+  rw = Rouletter.RouletteSelector(widths)
   print rw.spin(random.random())
   #test distribution looks OK
   hits = [0]*len(widths)

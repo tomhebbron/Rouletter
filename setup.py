@@ -6,11 +6,12 @@ setup(
     name="Rouletter: Roulette Selector",
     author="Tom Hebbron",
     author_email="tom@hebbron.com",
-    url="https://github.com/tomhebbron/rouletter",
-    ext_modules=cythonize([Extension("cyRouletter",
-                                     sources=["cyRouletter.pyx"],
+    url="https://github.com/tomhebbron/Rouletter",
+    py_modules=['purePythonRouletter.py'],
+    ext_modules=cythonize([Extension("Rouletter",
+                                     sources=["Rouletter.pyx"],
                                      language="c++",
-                                     extra_compile_args=['-O3'],
+                                     #extra_compile_args=['-O3'],
                                      )]),
     include_dirs=[]
 )
