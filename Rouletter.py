@@ -1,6 +1,6 @@
 """
 
-This file, pyRouletter.py, contains python implementations (with the same interface)
+This file, Rouletter.py, contains python implementations (with the same interface)
 as the Cython implementation. Only advised for performance comparison purposes.
 
 """
@@ -37,8 +37,6 @@ class RouletteSelector:
     def spin(self, luck):
         '''luck is a float between 0.0 and 1.0'''
         return bisect.bisect_left(self.bounds, luck)
-
-
 
 
 class RouletteSelector2:

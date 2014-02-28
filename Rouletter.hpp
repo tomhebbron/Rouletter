@@ -1,6 +1,8 @@
+#pragma once
 
 #include <cstddef>
 #include <vector>
+#include <iterator>
 
 namespace Rouletter
 {
@@ -26,6 +28,9 @@ namespace Rouletter
                 this->bounds = new double[len];
                 rouletter_init(data,len,this->bounds);
             }
+
+
+
 
             ~Rouletter() {delete[] bounds;}
 
@@ -86,20 +91,7 @@ namespace Rouletter
                 return rouletter_spin_bisect(this->bounds,this->len,luck);
             }
 
-
-
-
-
-
-
     };
-
-    class RouletterI : public Rouletter<int> {};
-
-    class RouletterD: public Rouletter<double> {};
-
-
-
 
 };
 

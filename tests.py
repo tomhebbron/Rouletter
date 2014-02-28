@@ -6,7 +6,7 @@ import scipy
 import numpy
 
 import Rouletter
-import pyRouletter
+import Rouletter
 
 
 def profile_this(fn):
@@ -57,7 +57,7 @@ class RouletteSelectorTests(unittest.TestCase):
 
 def main():
     global CURRENT_TEST_CLASS
-    for CURRENT_TEST_CLASS in [Rouletter.Rouletter, pyRouletter.RouletteSelector, pyRouletter.RouletteSelector2]:
+    for CURRENT_TEST_CLASS in [Rouletter.Rouletter, Rouletter.RouletteSelector, Rouletter.RouletteSelector2]:
         print CURRENT_TEST_CLASS
         unittest.main(exit=False)
     
