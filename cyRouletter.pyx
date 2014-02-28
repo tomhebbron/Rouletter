@@ -20,7 +20,7 @@ cdef extern from "Rouletter.hpp" namespace "Rouletter":
 
 
 
-cdef class RoueletteSelector:
+cdef class RouletteSelector:
 	cdef CppRouletterD* thisptr
 	def __cinit__(self, data):
 		# allocate c array for input data, and copy over.

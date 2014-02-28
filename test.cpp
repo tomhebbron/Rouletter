@@ -1,4 +1,4 @@
-
+//g++ -std=c++11 test.cpp -o test.exe
 #include "Rouletter.hpp"
 #include <random>
 #include <iostream>
