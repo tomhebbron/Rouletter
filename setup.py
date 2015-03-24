@@ -3,11 +3,10 @@ from distutils.extension import Extension
 from Cython.Build import cythonize
 
 setup(
-    name="Rouletter: Roulette Selector",
+    name="Rouletter",
     author="Tom Hebbron",
     author_email="tom@hebbron.com",
     url="https://github.com/tomhebbron/Rouletter",
-    py_modules=['purePythonRouletter.py'],
     ext_modules=cythonize([Extension("Rouletter",
                                      sources=["Rouletter.pyx"],
                                      language="c++",
